@@ -128,9 +128,56 @@ export async function fetchData() {
     recentActivity.sort((a, b) => new Date(b.date) - new Date(a.date));
     const recent10 = recentActivity.slice(0, 10);
 
+    // Calculate Highlights
+    let biggestDrop = { points: -1 };
+    let mostCreative = { points: -1 };
+    let glizzyGladiator = { dogs: -1 };
+
+    scoresData.forEach(s => {
+      const name = s['Contestant'];
+      const date = s['Date'];
+      const dogPoints = parseFloat(s['Dog Points']) || 0;
+      const bonusPoints = parseFloat(s['Bonus Points']) || 0;
+      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + bonusPoints);
+
+      // Biggest Score Drop (Total Points)
+      if (totalPoints > biggestDrop.points) {
+        biggestDrop = { name, date, points: totalPoints };
+      }
+
+      // Most Creative (Bonus Points)
+      if (bonusPoints > mostCreative.points) {
+        mostCreative = { name, date, points: bonusPoints };
+      }
+
+      // Glizzy Gladiator (Dog Points)
+      if (dogPoints > glizzyGladiator.dogs) {
+        glizzyGladiator = { name, date, dogs: dogPoints };
+      }
+    });
+
+    const highlights = [
+      {
+        title: "BIGGEST SCORE DROP 📉",
+        text: `${biggestDrop.name} slammed down ${biggestDrop.points} points on ${biggestDrop.date}!`,
+        icon: "💥"
+      },
+      {
+        title: "MOST CREATIVE 🎨",
+        text: `${mostCreative.name} earned ${mostCreative.points} bonus points on ${mostCreative.date} for pure style!`,
+        icon: "✨"
+      },
+      {
+        title: "GLIZZY GLADIATOR 🌭",
+        text: `${glizzyGladiator.name} devoured ${glizzyGladiator.dogs} dogs in one sitting on ${glizzyGladiator.date}!`,
+        icon: "👑"
+      }
+    ];
+
     return {
       contestants,
-      recentActivity: recent10
+      recentActivity: recent10,
+      highlights
     };
 
   } catch (error) {

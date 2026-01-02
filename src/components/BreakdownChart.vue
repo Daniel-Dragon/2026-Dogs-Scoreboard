@@ -60,13 +60,13 @@ const chartOptions = {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  width: 100%;
 }
 
 .chart-wrapper {
-  flex-grow: 1;
+  position: relative;
   width: 100%;
-  min-height: 250px;
+  height: 300px; /* Fixed height to prevent infinite growth */
 }
 
 h3 {

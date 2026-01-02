@@ -3,6 +3,7 @@ import { reactive } from 'vue';
 export const store = reactive({
   contestants: [],
   recentActivity: [],
+  highlights: [],
   loading: false,
   error: null,
 
@@ -12,6 +13,10 @@ export const store = reactive({
 
   setRecentActivity(data) {
     this.recentActivity = data;
+  },
+
+  setHighlights(data) {
+    this.highlights = data;
   },
 
   getContestantByName(name) {

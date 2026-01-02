@@ -18,6 +18,19 @@
     </div>
 
     <div v-else class="content-wrapper">
+      <section class="highlights-section">
+        <h2>🏆 Hall of Fame 🏆</h2>
+        <div class="highlights-grid">
+          <HighlightCard
+            v-for="(highlight, index) in store.highlights"
+            :key="index"
+            :title="highlight.title"
+            :text="highlight.text"
+            :icon="highlight.icon"
+          />
+        </div>
+      </section>
+
       <section class="leaderboard-section">
         <LeaderboardTable :contestants="store.contestants" />
       </section>
@@ -40,13 +53,15 @@ import { fetchData } from '../services/dataService';
 import LeaderboardTable from '../components/LeaderboardTable.vue';
 import RecentActivity from '../components/RecentActivity.vue';
 import GlobalProgressChart from '../components/GlobalProgressChart.vue';
+import HighlightCard from '../components/HighlightCard.vue';
 
 onMounted(async () => {
   if (store.contestants.length === 0) {
     store.loading = true;
-    const { contestants, recentActivity } = await fetchData();
+    const { contestants, recentActivity, highlights } = await fetchData();
     store.setContestants(contestants);
     store.setRecentActivity(recentActivity);
+    store.setHighlights(highlights);
     store.loading = false;
   }
 });
@@ -103,16 +118,27 @@ onMounted(async () => {
   gap: 30px;
 }
 
-.leaderboard-section {
+.highlights-section {
   order: 1;
+  margin-bottom: 20px;
 }
 
-.chart-section {
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.leaderboard-section {
   order: 2;
 }
 
-.activity-section {
+.chart-section {
   order: 3;
+}
+
+.activity-section {
+  order: 4;
 }
 
 .loading-state {
