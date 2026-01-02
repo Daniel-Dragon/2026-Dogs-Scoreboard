@@ -1,22 +1,23 @@
 :root {
-  --color-neon-pink: #ff00ff;
-  --color-neon-cyan: #00ffff;
-  --color-neon-green: #39ff14;
-  --color-neon-yellow: #fff01f;
-  --color-purple: #8a2be2;
-  --color-black: #111;
-  --color-white: #fff;
+  --color-tmnt-green: #4caf50; /* Leonardo/Ralph skin tone */
+  --color-tmnt-dark-green: #2e7d32;
+  --color-comic-red: #f44336; /* Raphael */
+  --color-comic-blue: #2196f3; /* Leonardo */
+  --color-comic-orange: #ff9800; /* Michelangelo */
+  --color-comic-purple: #9c27b0; /* Donatello */
+  --color-comic-yellow: #ffeb3b; /* April's jumpsuit */
+  --color-comic-black: #111;
+  --color-comic-white: #fff;
+  --color-sewer-grey: #607d8b;
+  --bg-pattern: radial-gradient(circle, var(--color-tmnt-dark-green) 1px, transparent 1px);
 }
 
 body {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
-  background-color: var(--color-purple);
-  background-image:
-    linear-gradient(45deg, var(--color-neon-pink) 25%, transparent 25%, transparent 75%, var(--color-neon-pink) 75%, var(--color-neon-pink)),
-    linear-gradient(45deg, var(--color-neon-pink) 25%, transparent 25%, transparent 75%, var(--color-neon-pink) 75%, var(--color-neon-pink));
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
-  color: var(--color-black);
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: var(--color-tmnt-green);
+  background-image: var(--bg-pattern);
+  background-size: 20px 20px;
+  color: var(--color-comic-black);
   margin: 0;
   padding: 0;
 }
@@ -24,8 +25,13 @@ body {
 h1, h2, h3 {
   font-family: 'Bangers', cursive;
   text-transform: uppercase;
-  color: var(--color-neon-yellow);
-  text-shadow: 3px 3px 0px var(--color-neon-pink);
+  color: var(--color-comic-white);
+  text-shadow:
+    3px 3px 0 var(--color-comic-black),
+    -1px -1px 0 var(--color-comic-black),
+    1px -1px 0 var(--color-comic-black),
+    -1px 1px 0 var(--color-comic-black),
+    1px 1px 0 var(--color-comic-black);
   letter-spacing: 2px;
 }
 
@@ -33,45 +39,59 @@ h1, h2, h3 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 5px solid var(--color-neon-cyan);
-  box-shadow: 10px 10px 0px var(--color-neon-green);
+  background-color: var(--color-comic-white);
+  border: 5px solid var(--color-comic-black);
+  box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
   min-height: 100vh;
 }
 
 button {
-  background-color: var(--color-neon-pink);
-  color: var(--color-white);
-  border: none;
+  background-color: var(--color-comic-orange);
+  color: var(--color-comic-black);
+  border: 3px solid var(--color-comic-black);
   padding: 10px 20px;
   font-family: 'Bangers', cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  transform: skew(-10deg);
-  box-shadow: 3px 3px 0 var(--color-black);
+  box-shadow: 5px 5px 0 var(--color-comic-black);
   transition: all 0.2s;
+  text-transform: uppercase;
 }
 
 button:hover {
-  transform: skew(-10deg) translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--color-black);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--color-comic-black);
+  background-color: var(--color-comic-yellow);
 }
 
 a {
-  color: var(--color-purple);
+  color: var(--color-comic-blue);
   text-decoration: none;
   font-weight: bold;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--color-neon-pink);
+  color: var(--color-comic-red);
 }
 
 .retro-box {
-  border: 4px solid var(--color-black);
+  border: 4px solid var(--color-comic-black);
   padding: 20px;
-  background: var(--color-white);
-  box-shadow: 8px 8px 0px var(--color-neon-cyan);
+  background: var(--color-comic-white);
+  box-shadow: 8px 8px 0px var(--color-sewer-grey);
   margin-bottom: 20px;
+  position: relative;
+}
+
+/* Comic Panel Effect */
+.retro-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
 }

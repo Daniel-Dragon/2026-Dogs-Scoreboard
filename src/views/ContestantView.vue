@@ -18,11 +18,10 @@
       </div>
 
       <div class="stats-grid">
-        <StatsCard label="Hot Dogs Eaten" :value="contestant.totalDogs" icon="🌭" />
-        <StatsCard label="Calories Consumed" :value="contestant.calories" icon="🔥" />
-        <StatsCard label="Weight (lbs)" :value="contestant.weightLbs" icon="⚖️" />
-        <StatsCard label="Distance to Moon (%)" :value="contestant.moonPercentage" icon="🌙" />
-        <StatsCard label="Eiffel Towers Tall" :value="contestant.eiffelTowers" icon="🗼" />
+        <ComicStatBubble icon="🗼" :text="contestant.eiffelSentence" />
+        <ComicStatBubble icon="🍕" :text="contestant.pizzaSentence" />
+        <ComicStatBubble icon="🥷" :text="contestant.ninjaSentence" />
+        <ComicStatBubble icon="🐢" :text="contestant.manholeSentence" />
       </div>
 
       <ProgressChart :history="contestant.history" />
@@ -61,7 +60,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { store } from '../store';
 import { fetchData } from '../services/dataService';
-import StatsCard from '../components/StatsCard.vue';
+import ComicStatBubble from '../components/ComicStatBubble.vue';
 import ProgressChart from '../components/ProgressChart.vue';
 import { format } from 'date-fns';
 

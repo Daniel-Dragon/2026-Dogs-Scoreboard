@@ -85,16 +85,28 @@ export async function fetchData() {
       c.history.sort((a, b) => new Date(b.date) - new Date(a.date));
 
       // Calculate funny stats
+      // 1 Hot Dog ~ 300 Cal
       c.calories = c.totalDogs * 300;
+
+      // 1 Hot Dog ~ 0.1 lbs
       c.weightLbs = (c.totalDogs * 0.1).toFixed(1);
-      // Assuming distance to moon is ~238,855 miles ~ 15,137,280,000 inches
-      // Average hot dog length ~ 6 inches
-      // Dogs to moon = 2,522,880,000
-      const dogsToMoon = 2522880000;
-      c.moonPercentage = ((c.totalDogs / dogsToMoon) * 100).toFixed(10); // Tiny number!
-      // Let's do something more reachable, like height of Eiffel Tower (12,960 inches = 2160 dogs)
+
+      // Height of Eiffel Tower (12,960 inches = 2160 dogs)
       const dogsToEiffel = 2160;
-      c.eiffelTowers = (c.totalDogs / dogsToEiffel).toFixed(2);
+      const eiffelVal = (c.totalDogs / dogsToEiffel).toFixed(4);
+      c.eiffelSentence = `${c.name} has eaten enough dogs to stack ${eiffelVal} Eiffel Towers high!`;
+
+      // Weight of a Large Pizza ~ 2 lbs (20 dogs)
+      const pizzaWeight = (c.totalDogs * 0.1) / 2;
+      c.pizzaSentence = `That's roughly equivalent to the weight of ${pizzaWeight.toFixed(1)} large pepperonis! 🍕`;
+
+      // Ninja Power (Arbitrary: 1 dog powers a ninja for 10 minutes)
+      const ninjaMinutes = c.totalDogs * 10;
+      c.ninjaSentence = `Enough fuel to power a ninja fighting foot soldiers for ${ninjaMinutes} minutes! 🥷`;
+
+      // Manhole Covers (Diameter ~ 24 inches = 4 dogs)
+      const manholeCovers = (c.totalDogs / 4).toFixed(1);
+      c.manholeSentence = `Laid end-to-end, they'd span across ${manholeCovers} sewer manhole covers! 🐢`;
 
       return c;
     });
