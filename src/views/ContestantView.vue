@@ -158,6 +158,10 @@ const handleImageError = (e) => {
   margin-top: 30px;
 }
 
+.main-chart, .side-chart {
+  min-width: 0; /* Critical for preventing grid blowout with charts */
+}
+
 .stats-grid {
   display: flex;
   flex-wrap: wrap;

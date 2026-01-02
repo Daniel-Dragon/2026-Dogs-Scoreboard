@@ -61,12 +61,14 @@ const chartOptions = {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-width: 0; /* Prevents flex item from expanding indefinitely */
 }
 
 .chart-wrapper {
   position: relative;
   width: 100%;
-  height: 300px; /* Fixed height to prevent infinite growth */
+  height: 300px; /* Fixed height */
+  overflow: hidden; /* Ensures canvas doesn't overflow */
 }
 
 h3 {
