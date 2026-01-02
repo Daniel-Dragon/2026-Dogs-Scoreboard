@@ -2,15 +2,6 @@
   <div class="home-view">
     <header class="main-header">
       <h1>Dawgz with Dogz for Dogs 🌭</h1>
-      <div class="legend-box">
-        <h3>📜 The Legend of the Golden Glizzy</h3>
-        <p>
-          Deep in the sewers of New York City, a secret tournament is held.
-          Warriors from all walks of life gather to prove their might, not with swords or nunchucks, but with appetite!
-          Who will consume the most dogs? Who will claim the ultimate title?
-          Witness the carnage. Respect the hunger. Cowabunga!
-        </p>
-      </div>
     </header>
 
     <div v-if="store.loading" class="loading-state">
