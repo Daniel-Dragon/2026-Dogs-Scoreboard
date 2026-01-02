@@ -25,9 +25,10 @@ export async function fetchData() {
       const name = c['Name'];
       if (name) {
         // Prepend /images/ if a filename is provided, otherwise use placeholder
-        let imagePath = '/images/placeholder.svg';
+        const baseUrl = import.meta.env.BASE_URL;
+        let imagePath = `${baseUrl}images/placeholder.svg`;
         if (c['Profile Picture']) {
-           imagePath = `/images/${c['Profile Picture']}`;
+           imagePath = `${baseUrl}images/${c['Profile Picture']}`;
         }
 
         contestantsMap[name] = {
@@ -65,7 +66,7 @@ export async function fetchData() {
         // For this app, we'll create a basic entry
          contestantsMap[name] = {
           name: name,
-          image: '/images/placeholder.svg',
+          image: `${import.meta.env.BASE_URL}images/placeholder.svg`,
           totalPoints: totalPoints,
           totalDogs: dogPoints,
           bonusPoints: bonusPoints,

@@ -103,7 +103,7 @@ const formatDate = (dateString) => {
 };
 
 const handleImageError = (e) => {
-  e.target.src = '/images/placeholder.svg';
+  e.target.src = `${import.meta.env.BASE_URL}images/placeholder.svg`;
 };
 </script>
 
