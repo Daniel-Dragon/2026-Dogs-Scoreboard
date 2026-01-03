@@ -196,5 +196,18 @@ td {
   .profile-wrapper {
     justify-content: flex-end;
   }
+
+  /* Stack label and content for profile cell on small screens */
+  .leaderboard-table .profile-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .leaderboard-table .profile-cell .profile-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 </style>
