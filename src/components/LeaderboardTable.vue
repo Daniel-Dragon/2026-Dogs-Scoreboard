@@ -161,10 +161,14 @@ td {
   }
 
   .leaderboard-table tr {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     border: 3px solid var(--color-black);
     box-shadow: 5px 5px 0 var(--color-black);
     background-color: var(--color-white);
+  }
+
+  .leaderboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
 
   .leaderboard-table td {
@@ -172,12 +176,11 @@ td {
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: right;
-    padding: 10px 15px;
+    padding: 15px;
   }
 
   .leaderboard-table td:last-child {
