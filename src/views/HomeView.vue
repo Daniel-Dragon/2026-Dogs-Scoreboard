@@ -1,7 +1,8 @@
 <template>
   <div class="home-view">
     <header class="main-header">
-      <h1><img src="/dawgz-dogz-dogs-logo.jpg" alt="Dawgz with Dogz for Dogs" style="width: 100%;" /></h1>
+      <h1>2026 Dogs Scoreboard</h1>
+      <img src="/dawgz-dogz-dogs-logo.jpg" alt="Dawgz with Dogz for Dogs" style="width: 100%;" />
     </header>
 
     <div v-if="store.loading" class="loading-state">
