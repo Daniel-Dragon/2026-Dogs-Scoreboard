@@ -36,7 +36,7 @@ export async function fetchData() {
           image: imagePath,
           totalPoints: 0,
           totalDogs: 0,
-          bonusPoints: 0,
+          creativePoints: 0,
           history: []
         };
       }
@@ -46,18 +46,18 @@ export async function fetchData() {
     scoresData.forEach(s => {
       const name = s['Contestant'];
       const dogPoints = parseFloat(s['Dog Points']) || 0;
-      const bonusPoints = parseFloat(s['Bonus Points']) || 0;
-      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + bonusPoints);
+      const creativePoints = parseFloat(s['Creative Points']) || 0;
+      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + creativePoints);
       const date = s['Date'];
 
       if (contestantsMap[name]) {
         contestantsMap[name].totalPoints += totalPoints;
         contestantsMap[name].totalDogs += dogPoints;
-        contestantsMap[name].bonusPoints += bonusPoints;
+        contestantsMap[name].creativePoints += creativePoints;
         contestantsMap[name].history.push({
           date: date,
           dogPoints: dogPoints,
-          bonusPoints: bonusPoints,
+          creativePoints: creativePoints,
           totalPoints: totalPoints
         });
       } else {
@@ -69,11 +69,11 @@ export async function fetchData() {
           image: `${import.meta.env.BASE_URL}images/placeholder.svg`,
           totalPoints: totalPoints,
           totalDogs: dogPoints,
-          bonusPoints: bonusPoints,
+          creativePoints: creativePoints,
           history: [{
              date: date,
              dogPoints: dogPoints,
-             bonusPoints: bonusPoints,
+             creativePoints: creativePoints,
              totalPoints: totalPoints
           }]
         };
@@ -136,8 +136,8 @@ export async function fetchData() {
       const name = s['Contestant'];
       const date = s['Date'];
       const dogPoints = parseFloat(s['Dog Points']) || 0;
-      const bonusPoints = parseFloat(s['Bonus Points']) || 0;
-      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + bonusPoints);
+      const creativePoints = parseFloat(s['Creative Points']) || 0;
+      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + creativePoints);
 
       // Biggest Score Drop (Total Points)
       if (totalPoints > biggestDrop.points) {
@@ -145,28 +145,28 @@ export async function fetchData() {
       }
     });
 
-    // Most Creative (Total Bonus Points)
-    let maxBonus = -1;
+    // Most Creative (Total Creative Points)
+    let maxCreative = -1;
     contestants.forEach(c => {
-        if (c.bonusPoints > maxBonus) maxBonus = c.bonusPoints;
+        if (c.creativePoints > maxCreative) maxCreative = c.creativePoints;
     });
 
     const creativeWinners = contestants
-        .filter(c => c.bonusPoints === maxBonus && maxBonus > 0)
+        .filter(c => c.creativePoints === maxCreative && maxCreative > 0)
         .map(c => c.name);
 
     let creativeText = '';
     if (creativeWinners.length === 0) {
-        creativeText = 'No bonus points awarded yet!';
+        creativeText = 'No creative points awarded yet!';
     } else if (creativeWinners.length === 1) {
-        creativeText = `${creativeWinners[0]} has earned ${maxBonus} total bonus points!`;
+        creativeText = `${creativeWinners[0]} has earned ${maxCreative} total creative points!`;
     } else {
         const names = [...creativeWinners];
         if (names.length === 2) {
-            creativeText = `${names[0]} & ${names[1]} are tied for the most bonus points with ${maxBonus}!`;
+            creativeText = `${names[0]} & ${names[1]} are tied for the most creative points with ${maxCreative}!`;
         } else {
             const last = names.pop();
-            creativeText = `${names.join(', ')}, & ${last} are tied for the most bonus points with ${maxBonus}!`;
+            creativeText = `${names.join(', ')}, & ${last} are tied for the most creative points with ${maxCreative}!`;
         }
     }
 

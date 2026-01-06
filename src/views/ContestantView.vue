@@ -37,7 +37,7 @@
             <tr>
               <th>Date</th>
               <th>Dog Points</th>
-              <th>Bonus Points</th>
+              <th>Creative Points</th>
               <th>Total</th>
             </tr>
           </thead>
@@ -45,7 +45,7 @@
             <tr v-for="(entry, idx) in contestant.history" :key="idx">
               <td>{{ formatDate(entry.date) }}</td>
               <td>{{ entry.dogPoints }}</td>
-              <td>{{ entry.bonusPoints }}</td>
+              <td>{{ entry.creativePoints }}</td>
               <td>{{ entry.totalPoints }}</td>
             </tr>
           </tbody>
