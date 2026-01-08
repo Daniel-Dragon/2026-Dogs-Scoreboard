@@ -12,7 +12,16 @@
           </tr>
         </thead>
         <tbody role="rowgroup">
-          <tr v-for="(contestant, index) in contestants" :key="contestant.name" class="contestant-row" @click="goToProfile(contestant.name)" role="row">
+          <tr
+            v-for="(contestant, index) in contestants"
+            :key="contestant.name"
+            class="contestant-row"
+            @click="goToProfile(contestant.name)"
+            @keydown.enter.prevent="goToProfile(contestant.name)"
+            @keydown.space.prevent="goToProfile(contestant.name)"
+            role="row"
+            tabindex="0"
+          >
             <td class="rank-cell" role="cell">
               <span class="mobile-label" aria-hidden="true">Rank:</span>
               <span v-if="index === 0">👑</span>
@@ -100,8 +109,11 @@ td {
   transition: background-color 0.2s;
 }
 
-.contestant-row:hover {
+.contestant-row:hover,
+.contestant-row:focus-visible {
   background-color: var(--color-neon-yellow);
+  outline: 3px solid var(--color-purple);
+  outline-offset: -3px;
 }
 
 .rank-cell {
