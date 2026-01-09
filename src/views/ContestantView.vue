@@ -1,8 +1,10 @@
 <template>
   <div class="contestant-view">
-    <button class="back-btn" @click="router.push('/')">👈 Back to Leaderboard</button>
+    <button class="back-btn" @click="router.push('/')" aria-label="Back to Leaderboard">
+      <span aria-hidden="true">👈</span> Back to Leaderboard
+    </button>
 
-    <div v-if="loading" class="loading-state">Loading Profile...</div>
+    <div v-if="loading" class="loading-state" role="status" aria-live="polite">Loading Profile...</div>
 
     <div v-else-if="contestant" class="profile-container">
       <div class="profile-header retro-box">
@@ -19,7 +21,7 @@
 
       <div class="charts-row">
         <div class="main-chart">
-           <ProgressChart :history="contestant.history" />
+           <ProgressChart :history="contestant.history" :contestant-name="contestant.name" />
         </div>
       </div>
 
@@ -31,8 +33,8 @@
       </div>
 
       <div class="history-log retro-box">
-        <h2>Eating History</h2>
-        <table class="history-table">
+        <h2 id="history-heading">Eating History</h2>
+        <table class="history-table" aria-labelledby="history-heading">
           <thead>
             <tr>
               <th>Date</th>

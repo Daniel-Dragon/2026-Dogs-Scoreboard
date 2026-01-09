@@ -1,6 +1,12 @@
 <template>
   <div class="chart-container retro-box">
-    <Line v-if="chartData.labels.length" :data="chartData" :options="chartOptions" />
+    <Line
+      v-if="chartData.labels.length"
+      :data="chartData"
+      :options="chartOptions"
+      :aria-label="`Points Progression Chart for ${contestantName}`"
+      role="img"
+    />
     <div v-else class="loading-chart">Loading Chart Data...</div>
   </div>
 </template>
@@ -33,6 +39,10 @@ const props = defineProps({
   history: {
     type: Array,
     required: true
+  },
+  contestantName: {
+    type: String,
+    default: ''
   }
 });
 

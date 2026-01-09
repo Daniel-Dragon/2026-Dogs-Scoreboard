@@ -1,6 +1,12 @@
 <template>
   <div class="chart-container retro-box">
-    <Line v-if="chartData.datasets.length" :data="chartData" :options="chartOptions" />
+    <Line
+      v-if="chartData.datasets.length"
+      :data="chartData"
+      :options="chartOptions"
+      aria-label="Overall Leaderboard Progression Chart"
+      role="img"
+    />
     <div v-else class="loading-chart">Loading Chart Data...</div>
   </div>
 </template>
