@@ -69,7 +69,7 @@ onMounted(async () => {
   margin-bottom: 30px;
   background: var(--color-neon-yellow);
   padding: 20px;
-  border: 5px dashed var(--color-neon-pink);
+  border: 5px dashed var(--color-tmnt-dark-green);
   transform: rotate(-1deg);
   box-shadow: 10px 10px 0 var(--color-purple);
 }

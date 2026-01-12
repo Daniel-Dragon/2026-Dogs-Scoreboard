@@ -60,8 +60,8 @@ const chartData = computed(() => {
 
   // Generate distinct colors for lines
   const colors = [
-    '#ff00ff', '#00ffff', '#39ff14', '#fff01f', '#8a2be2',
-    '#ff4500', '#1e90ff', '#ff1493', '#00ced1', '#ffd700'
+    '#2e7d32', '#f44336', '#2196f3', '#ff9800', '#9c27b0',
+    '#00ffff', '#39ff14', '#fff01f', '#ff1493', '#00ced1'
   ];
 
   const datasets = props.contestants.map((c, index) => {
