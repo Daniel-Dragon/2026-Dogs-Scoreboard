@@ -7,7 +7,7 @@
       :aria-label="`Points Progression Chart for ${contestantName}`"
       role="img"
     />
-    <div v-else class="loading-chart">Loading Chart Data...</div>
+    <div v-else class="loading-chart" role="status" aria-live="polite">Loading Chart Data...</div>
   </div>
 </template>
 
