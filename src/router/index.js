@@ -15,7 +15,14 @@ const router = createRouter({
       name: 'contestant',
       component: ContestantView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  }
 });
 
 export default router;

@@ -7,7 +7,7 @@
       aria-label="Overall Leaderboard Progression Chart"
       role="img"
     />
-    <div v-else class="loading-chart">Loading Chart Data...</div>
+    <div v-else class="loading-chart" role="status" aria-live="polite">Loading Chart Data...</div>
   </div>
 </template>
 

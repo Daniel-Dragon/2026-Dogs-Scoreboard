@@ -206,6 +206,6 @@ export async function fetchData() {
 
   } catch (error) {
     console.error("Error fetching data:", error);
-    return { contestants: [], recentActivity: [] };
+    return { contestants: [], recentActivity: [], highlights: [] }; // Added highlights: []
   }
 }
