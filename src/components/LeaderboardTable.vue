@@ -88,7 +88,7 @@ const handleImageError = (e) => {
 }
 
 th {
-  background-color: var(--color-neon-pink);
+  background-color: var(--color-tmnt-dark-green);
   color: var(--color-white);
   padding: 15px;
   text-align: left;

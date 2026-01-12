@@ -150,7 +150,7 @@ const handleImageError = (e) => {
 
 .total-score span {
   font-size: 3rem;
-  color: var(--color-neon-pink);
+  color: var(--color-tmnt-dark-green);
   text-shadow: 2px 2px 0 var(--color-white);
 }
 

@@ -32,7 +32,7 @@ defineProps({
   padding: 15px;
   display: flex;
   align-items: center;
-  box-shadow: 5px 5px 0px var(--color-neon-pink);
+  box-shadow: 5px 5px 0px var(--color-tmnt-dark-green);
   transform: rotate(-2deg);
   transition: transform 0.2s;
   margin: 10px;

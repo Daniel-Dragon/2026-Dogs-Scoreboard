@@ -68,7 +68,7 @@ const chartData = computed(() => {
       {
         label: 'Cumulative Points',
         backgroundColor: '#00ffff',
-        borderColor: '#ff00ff',
+        borderColor: '#2e7d32',
         borderWidth: 3,
         pointBackgroundColor: '#fff01f',
         pointBorderColor: '#000',
