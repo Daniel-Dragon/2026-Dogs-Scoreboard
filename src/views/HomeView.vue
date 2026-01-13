@@ -9,7 +9,7 @@
       Fetching Tasty Data...
     </div>
 
-    <div v-else class="content-wrapper">
+    <div v-else id="main-content" class="content-wrapper" tabindex="-1">
       <section class="highlights-section">
         <h2>🏆 Hall of Fame 🏆</h2>
         <div class="highlights-grid">

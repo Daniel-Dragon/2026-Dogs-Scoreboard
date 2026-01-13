@@ -6,7 +6,7 @@
 
     <div v-if="loading" class="loading-state" role="status" aria-live="polite">Loading Profile...</div>
 
-    <div v-else-if="contestant" class="profile-container">
+    <div v-else-if="contestant" id="main-content" class="profile-container" tabindex="-1">
       <div class="profile-header retro-box">
         <div class="profile-image-wrapper">
           <img :src="contestant.image" :alt="contestant.name" class="profile-image" @error="handleImageError">
