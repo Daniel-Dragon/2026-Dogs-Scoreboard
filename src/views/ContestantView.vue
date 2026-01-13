@@ -40,6 +40,7 @@
               <th>Date</th>
               <th>Dog Points</th>
               <th>Creative Points</th>
+              <th>Social Points</th>
               <th>Total</th>
             </tr>
           </thead>
@@ -48,6 +49,7 @@
               <td>{{ formatDate(entry.date) }}</td>
               <td>{{ entry.dogPoints }}</td>
               <td>{{ entry.creativePoints }}</td>
+              <td>{{ entry.socialPoints }}</td>
               <td>{{ entry.totalPoints }}</td>
             </tr>
           </tbody>
