@@ -37,6 +37,7 @@ export async function fetchData() {
           totalPoints: 0,
           totalDogs: 0,
           creativePoints: 0,
+          socialPoints: 0,
           history: []
         };
       }
@@ -47,17 +48,20 @@ export async function fetchData() {
       const name = s['Contestant'];
       const dogPoints = parseFloat(s['Dog Points']) || 0;
       const creativePoints = parseFloat(s['Creative Points']) || 0;
-      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + creativePoints);
+      const socialPoints = parseFloat(s['Social Points']) || 0;
+      const totalPoints = parseFloat(s['Total Points']) || (dogPoints + creativePoints + socialPoints);
       const date = s['Date'];
 
       if (contestantsMap[name]) {
         contestantsMap[name].totalPoints += totalPoints;
         contestantsMap[name].totalDogs += dogPoints;
         contestantsMap[name].creativePoints += creativePoints;
+        contestantsMap[name].socialPoints += socialPoints;
         contestantsMap[name].history.push({
           date: date,
           dogPoints: dogPoints,
           creativePoints: creativePoints,
+          socialPoints: socialPoints,
           totalPoints: totalPoints
         });
       } else {
@@ -180,6 +184,31 @@ export async function fetchData() {
         }
     }
 
+    // Most Social (Total Social Points)
+    let maxSocial = -1;
+    contestants.forEach(c => {
+        if (c.socialPoints > maxSocial) maxSocial = c.socialPoints;
+    });
+
+    const socialWinners = contestants
+        .filter(c => c.socialPoints === maxSocial && maxSocial > 0)
+        .map(c => c.name);
+
+    let socialText = '';
+    if (socialWinners.length === 0) {
+        socialText = 'No social points awarded yet!';
+    } else if (socialWinners.length === 1) {
+        socialText = `${socialWinners[0]} has earned ${maxSocial} total social points!`;
+    } else {
+        const names = [...socialWinners];
+        if (names.length === 2) {
+            socialText = `${names[0]} & ${names[1]} are tied for the most social points with ${maxSocial}!`;
+        } else {
+            const last = names.pop();
+            socialText = `${names.join(', ')}, & ${last} are tied for the most social points with ${maxSocial}!`;
+        }
+    }
+
     const highlights = [
       {
         title: "BIGGEST SCORE DROP 📉",
@@ -190,6 +219,11 @@ export async function fetchData() {
         title: "MOST CREATIVE 🎨",
         text: creativeText,
         icon: "✨"
+      },
+      {
+        title: "MOST SOCIAL 🎉",
+        text: socialText,
+        icon: "👯"
       },
       {
         title: "GLIZZY GLADIATOR 🌭",

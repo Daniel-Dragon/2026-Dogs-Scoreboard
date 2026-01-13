@@ -8,6 +8,7 @@
             <th role="columnheader">Rank</th>
             <th role="columnheader">Contestant</th>
             <th role="columnheader">Total Points</th>
+            <th role="columnheader">Social Points</th>
             <th role="columnheader">Hot Dogs Eaten</th>
           </tr>
         </thead>
@@ -39,6 +40,10 @@
             <td class="points-cell" role="cell">
               <span class="mobile-label" aria-hidden="true">Total Points:</span>
               {{ contestant.totalPoints }}
+            </td>
+            <td class="social-cell" role="cell">
+              <span class="mobile-label" aria-hidden="true">Social Points:</span>
+              {{ contestant.socialPoints }}
             </td>
             <td class="dogs-cell" role="cell">
               <span class="mobile-label" aria-hidden="true">Hot Dogs:</span>
