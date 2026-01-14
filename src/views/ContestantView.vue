@@ -6,7 +6,7 @@
 
     <div v-if="loading" class="loading-state" role="status" aria-live="polite">Loading Profile...</div>
 
-    <div v-else-if="contestant" id="main-content" class="profile-container" tabindex="-1">
+    <div v-else-if="contestant" class="profile-container">
       <div class="profile-header retro-box">
         <div class="profile-image-wrapper">
           <img :src="contestant.image" :alt="contestant.name" class="profile-image" @error="handleImageError">
@@ -55,8 +55,10 @@
       </div>
     </div>
 
-    <div v-else class="error-state">
+    <div v-else class="error-state retro-box">
       <h2>Contestant Not Found! 😱</h2>
+      <p>We couldn't find a glizzy gladiator by that name.</p>
+      <button @click="router.push('/')">Return to Leaderboard</button>
     </div>
   </div>
 </template>
@@ -85,10 +87,6 @@ onMounted(async () => {
   }
 
   contestant.value = store.getContestantByName(name);
-  if (!contestant.value) {
-    router.push('/');
-    return;
-  }
   loading.value = false;
 });
 
