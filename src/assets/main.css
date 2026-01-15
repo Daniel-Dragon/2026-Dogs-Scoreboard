@@ -53,6 +53,28 @@ h1, h2, h3 {
   min-height: 100vh;
 }
 
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -1000px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-comic-yellow);
+  color: var(--color-comic-black);
+  padding: 10px 20px;
+  font-weight: bold;
+  z-index: 9999;
+  border: 3px solid var(--color-comic-black);
+  box-shadow: 5px 5px 0 var(--color-comic-black);
+  text-transform: uppercase;
+  font-family: 'Bangers', cursive;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 3px solid var(--color-comic-purple);
+}
+
 button {
   background-color: var(--color-comic-orange);
   color: var(--color-comic-black);
