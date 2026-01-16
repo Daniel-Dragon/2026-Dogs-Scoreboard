@@ -51,6 +51,30 @@ h1, h2, h3 {
   border: 5px solid var(--color-comic-black);
   box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
   min-height: 100vh;
+  position: relative; /* Context for skip-link absolute positioning */
+}
+
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-comic-yellow);
+  color: var(--color-comic-black);
+  padding: 15px 25px;
+  z-index: 9999;
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border: 3px solid var(--color-comic-black);
+  box-shadow: 5px 5px 0 var(--color-comic-purple);
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: none;
 }
 
 button {
