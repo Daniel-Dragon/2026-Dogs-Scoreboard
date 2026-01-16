@@ -1,7 +1,7 @@
 <template>
   <div class="highlight-card">
     <div class="card-header">
-      <span class="icon">{{ icon }}</span>
+      <span class="icon" aria-hidden="true">{{ icon }}</span>
       <h3>{{ title }}</h3>
     </div>
     <div class="card-body">
