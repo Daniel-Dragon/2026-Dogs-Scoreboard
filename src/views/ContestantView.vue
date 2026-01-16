@@ -57,8 +57,10 @@
       </div>
     </div>
 
-    <div v-else class="error-state">
+    <div v-else class="error-state retro-box">
       <h2>Contestant Not Found! 😱</h2>
+      <p>We couldn't find a glizzy gladiator by that name.</p>
+      <button @click="router.push('/')">Return to Leaderboard</button>
     </div>
   </div>
 </template>
@@ -87,10 +89,6 @@ onMounted(async () => {
   }
 
   contestant.value = store.getContestantByName(name);
-  if (!contestant.value) {
-    router.push('/');
-    return;
-  }
   loading.value = false;
 });
 
