@@ -72,6 +72,11 @@ button:hover {
   background-color: var(--color-comic-yellow);
 }
 
+button:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 2px;
+}
+
 a {
   color: var(--color-comic-blue);
   text-decoration: none;
@@ -81,6 +86,12 @@ a {
 a:hover {
   text-decoration: underline;
   color: var(--color-comic-red);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .retro-box {
